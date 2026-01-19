@@ -31,7 +31,7 @@ const Footer = () => {
               },
             ].map((col, i) => (
               <div key={i}>
-                <h3 className="font-semibold mb-4">{col.title}</h3>
+                <h3 className="font-semibold text-white mb-4">{col.title}</h3>
                 <ul className="space-y-2">
                   {col.links.map((link, j) => (
                     <li key={j}>
