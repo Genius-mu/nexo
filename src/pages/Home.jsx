@@ -171,16 +171,19 @@ function NexoWebsite() {
             {[
               {
                 title: "Science-led training",
+                img: "/img/img5.webp",
                 description:
                   "Every workout is grounded in proven training principles and real-world results. No gimmicks, just what works.",
               },
               {
                 title: "Accountability that adapts",
+                img: "/img/img4.webp",
                 description:
                   "Life gets busy. Our system adjusts your plan to keep you consistent without the guilt or pressure.",
               },
               {
                 title: "Designed for focus",
+                img: "/img/img2.webp",
                 description:
                   "No clutter. No distractions. Just clean interfaces that help you train, track progress, and see results.",
               },
@@ -189,8 +192,11 @@ function NexoWebsite() {
                 key={i}
                 className="group grid md:grid-cols-2 gap-8 items-center p-8 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 hover:border-white/20 transition-all duration-500 shadow-lg shadow-black/30"
               >
-                <div className="h-80 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-2xl flex items-center justify-center text-gray-500 font-medium group-hover:scale-105 transition-transform duration-500 border border-white/10">
-                  Feature Visual {i + 1}
+                <div className="h-80 overflow-hidden bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-2xl flex items-center justify-center text-gray-500 font-medium group-hover:scale-105 transition-transform duration-500 border border-white/10">
+                  <img
+                    src={feature.img}
+                    className="w-full h-full object-cover bg-top"
+                  />
                 </div>
                 <div>
                   <h3 className="text-3xl font-bold mb-4">{feature.title}</h3>
@@ -275,16 +281,18 @@ function NexoWebsite() {
           <div className="grid md:grid-cols-2 gap-8">
             <Testimonial
               quote="Before Nexo, I was constantly second-guessing my training. With Nexo, everything feels structured and intentional. I've never been more consistent."
-              author="Alex Samuel"
+              author="C.Ronaldo"
               role="Product Designer"
               rating={5}
+              img="/img/img5.webp"
             />
 
             <Testimonial
               quote="Life gets busy, and I don't always hit every workout. Instead of feeling like I failed, the plan adapts and keeps me consistent. It's been a game-changer."
-              author="Happiness Adeola"
+              author="Elon Musk"
               role="Business Professional"
               rating={5}
+              img="/img/img1.webp"
             />
           </div>
         </div>
@@ -316,7 +324,7 @@ function NexoWebsite() {
   );
 }
 
-function Testimonial({ quote, author, role, rating }) {
+function Testimonial({ quote, author, role, rating, img }) {
   return (
     <div className="group relative p-8 rounded-3xl bg-white/5 backdrop-blur-2xl border border-white/10 hover:border-white/30 transition-all duration-500 hover:transform hover:scale-105 shadow-lg shadow-black/30">
       <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -332,7 +340,9 @@ function Testimonial({ quote, author, role, rating }) {
           "{quote}"
         </blockquote>
         <div className="flex items-center gap-4">
-          <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-xl border border-white/20" />
+          <div className="w-12 h-12 rounded-full overflow-hidden bg-white/10 backdrop-blur-xl border border-white/20">
+            <img src={img} alt="" className="w-full h-full" />
+          </div>
           <div>
             <p className="font-semibold">{author}</p>
             <p className="text-gray-500 text-sm">{role}</p>
