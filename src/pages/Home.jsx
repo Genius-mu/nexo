@@ -8,16 +8,10 @@ import {
   Zap,
   Users,
 } from "lucide-react";
+import Header from "../components/Header";
+import PricingCard from "../components/Pricing";
 
 function NexoWebsite() {
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
     <div className="min-h-screen bg-black text-white font-sans overflow-x-hidden">
       {/* Cinematic Animated Background */}
@@ -35,38 +29,7 @@ function NexoWebsite() {
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:4rem_4rem]" />
       </div>
 
-      {/* Navigation with Glassmorphism */}
-      <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled
-            ? "bg-black/40 backdrop-blur-2xl border-b border-white/10 shadow-lg shadow-black/50 py-3"
-            : "bg-transparent py-5"
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-          <div className="text-2xl font-bold tracking-tight">
-            <span className="bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent">
-              NEXO
-            </span>
-          </div>
-          <div className="hidden md:flex items-center space-x-8">
-            {["About", "Trainings", "Testimonials", "Contact"].map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="relative group text-gray-300 hover:text-white transition-colors duration-300"
-              >
-                {item}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-white to-gray-400 group-hover:w-full transition-all duration-300" />
-              </a>
-            ))}
-          </div>
-          <button className="bg-white text-black px-6 py-2.5 rounded-full font-medium hover:bg-gray-100 hover:shadow-lg hover:shadow-white/20 transition-all duration-300 transform hover:scale-105 active:scale-95">
-            Get Started
-          </button>
-        </div>
-      </nav>
-
+      <Header />
       {/* Hero Section */}
       <section className="relative pt-40 pb-24 px-6">
         <div className="max-w-6xl mx-auto text-center relative z-10">
@@ -349,108 +312,6 @@ function NexoWebsite() {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="border-t border-white/10 py-16 px-6 relative z-10 bg-black/30 backdrop-blur-xl">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-4 gap-12 mb-12">
-            <div>
-              <div className="text-2xl font-bold mb-4 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-                NEXO
-              </div>
-              <p className="text-gray-500 text-sm">
-                Training systems designed to help you stay consistent.
-              </p>
-            </div>
-
-            {[
-              {
-                title: "Product",
-                links: ["Features", "Pricing", "FAQ", "Changelog"],
-              },
-              {
-                title: "Company",
-                links: ["About", "Blog", "Careers", "Press"],
-              },
-              {
-                title: "Legal",
-                links: ["Privacy", "Terms", "Security", "Cookies"],
-              },
-            ].map((col, i) => (
-              <div key={i}>
-                <h3 className="font-semibold mb-4">{col.title}</h3>
-                <ul className="space-y-2">
-                  {col.links.map((link, j) => (
-                    <li key={j}>
-                      <a
-                        href="#"
-                        className="text-gray-500 hover:text-white transition-colors text-sm"
-                      >
-                        {link}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-
-          <div className="pt-8 border-t border-white/10 text-center text-gray-500 text-sm">
-            <p>© 2026 Nexo. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
-    </div>
-  );
-}
-
-function PricingCard({
-  title,
-  price,
-  description,
-  features,
-  buttonText,
-  buttonVariant = "primary",
-  popular = false,
-}) {
-  const variants = {
-    primary: "bg-white text-black hover:shadow-xl hover:shadow-white/30",
-    outline:
-      "border border-white/30 hover:bg-white/10 hover:border-white/50 backdrop-blur-xl",
-  };
-
-  return (
-    <div
-      className={`relative rounded-3xl p-8 transition-all duration-500 hover:transform hover:scale-105 ${
-        popular
-          ? "bg-white/10 backdrop-blur-2xl border-2 border-white/30 shadow-2xl shadow-white/10"
-          : "bg-white/5 backdrop-blur-2xl border border-white/10 shadow-lg shadow-black/30"
-      }`}
-    >
-      {popular && (
-        <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-white text-black text-xs font-bold px-6 py-2 rounded-full shadow-lg">
-          MOST POPULAR
-        </div>
-      )}
-      <h3 className="text-2xl font-bold mb-2">{title}</h3>
-      <p className="text-gray-400 mb-6 text-sm">{description}</p>
-      <div className="mb-8">
-        <span className="text-5xl font-bold">${price}</span>
-        <span className="text-gray-400 ml-2">/month</span>
-      </div>
-      <ul className="space-y-4 mb-8">
-        {features.map((feature, i) => (
-          <li key={i} className="flex items-start gap-3">
-            <Check size={18} className="text-white mt-1 flex-shrink-0" />
-            <span className="text-gray-300 text-sm">{feature}</span>
-          </li>
-        ))}
-      </ul>
-      <button
-        className={`w-full py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 active:scale-95 ${variants[buttonVariant]}`}
-      >
-        {buttonText}
-      </button>
     </div>
   );
 }
