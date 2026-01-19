@@ -3,7 +3,8 @@ import React from "react";
 const Footer = () => {
   return (
     <>
-      <footer className="border-t border-white/10 py-16 px-6 relative z-10 bg-black/30 backdrop-blur-xl">
+      <footer className=" py-16 px-6 relative z-10 bg-black/30 backdrop-blur-xl">
+        <hr className={`absolute top-0 left-0 right-0 border-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent z-10`} />
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-4 gap-12 mb-12">
             <div>
