@@ -192,11 +192,14 @@ function NexoWebsite() {
                 key={i}
                 className="group grid md:grid-cols-2 gap-8 items-center p-8 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 hover:border-white/20 transition-all duration-500 shadow-lg shadow-black/30"
               >
-                <div className="h-80 overflow-hidden bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-2xl flex items-center justify-center text-gray-500 font-medium group-hover:scale-105 transition-transform duration-500 border border-white/10">
-                  <img
+                <div
+                  className={`h-80 bg-[rgba(0,0,0,.5)] group-hover:bg-[rgba(0,0,0,.3)] bg-cover bg-blend-darken overflow-hidden backdrop-blur-xl rounded-2xl flex items-center justify-center text-gray-500 font-medium group-hover:scale-105 transition-transform duration-500 border border-white/10 bg-center`}
+                  style={{ backgroundImage: `url(${feature.img})` }}
+                >
+                  {/* <img
                     src={feature.img}
                     className="w-full h-full object-cover bg-top"
-                  />
+                  /> */}
                 </div>
                 <div>
                   <h3 className="text-3xl font-bold mb-4">{feature.title}</h3>

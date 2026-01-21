@@ -13,7 +13,7 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navItems = ["About", "Trainings", "Testimonials", "Contact"];
+  const navItems = ["Home", "About", "Trainings", "Testimonials", "Contact"];
 
   return (
     <>
@@ -50,7 +50,7 @@ const Header = () => {
             {navItems.map((item) => (
               <a
                 key={item}
-                href={`/#${item.toLowerCase()}`}
+                href={`/${item.toLowerCase()}`}
                 className="relative group text-gray-300 hover:text-white transition-colors duration-300 text-sm lg:text-base"
               >
                 {item}
@@ -129,7 +129,7 @@ const Header = () => {
               {navItems.map((item) => (
                 <a
                   key={item}
-                  href={`/#${item.toLowerCase()}`}
+                  href={`/${item.toLowerCase()}`}
                   className="text-gray-200 hover:text-white transition-colors py-3 border-b border-white/10"
                   onClick={() => setMobileMenuOpen(false)}
                 >
