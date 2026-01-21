@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react"; // ← install lucide-react or use your own icons
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -48,9 +49,9 @@ const Header = () => {
           {/* Desktop menu */}
           <div className="hidden md:flex items-center space-x-8 lg:space-x-10">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item}
-                href={`/${item.toLowerCase()}`}
+                to={`/${item.toLowerCase()}`}
                 className="relative group text-gray-300 hover:text-white transition-colors duration-300 text-sm lg:text-base"
               >
                 {item}
@@ -61,7 +62,7 @@ const Header = () => {
                     group-hover:w-full transition-all duration-300
                   "
                 />
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -127,14 +128,14 @@ const Header = () => {
 
             <nav className="flex flex-col gap-6 text-lg">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item}
-                  href={`/${item.toLowerCase()}`}
+                  to={`/${item.toLowerCase()}`}
                   className="text-gray-200 hover:text-white transition-colors py-3 border-b border-white/10"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item}
-                </a>
+                </Link>
               ))}
             </nav>
 
